@@ -57,13 +57,18 @@ class vector(object):
     def push_back(self, data):
         if data in self.v_data:
             return
-        if len(self.v_data)!=0:
-            if type(data) != type(self.get_last_data()):
+        oldType = type(self.get_last_data())
+        if oldType != None:
+            if type(data) != oldType:
                 return
         self.v_data.append(data)
     def insert(self, index, data):
         if index < 0 or index > len(self.v_data):
             return
+        oldType = type(self.get_last_data())
+        if oldType != None:
+            if type(data) != oldType:
+                return
         self.v_data.insert(index,data)
 
 
